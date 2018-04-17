@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Home</title>
+</head>
+<body>
+<h1>This is the home page</h1>
+
+<br/>
+
+<div th:if="${name}">
+    <h2>Hello, <span th:text="${name}"></span></h2>
+</div>
+
+<div th:each="user : ${users}">
+    <h3>Welcome, <span th:text="${user}"></span></h3>
+</div>
+
+<footer>
+    <div th:include="partials/footer :: footer"></div>
+</footer>
+
+
+</body>
+</html>
