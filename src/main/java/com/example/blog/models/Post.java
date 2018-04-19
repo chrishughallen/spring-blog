@@ -1,7 +1,10 @@
 package com.example.blog.models;
 
 
+import org.hibernate.annotations.CreationTimestamp;
+
 import javax.persistence.*;
+import java.util.Date;
 
 
 @Entity
@@ -22,21 +25,29 @@ public class Post {
     @Column(nullable = false)
     private String cat;
 
+    @CreationTimestamp
+    @Column(name = "created")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date created;
+
+
 
     public Post() {
     }
 
-    public Post(String title, String body, String cat) {
+    public Post(String title, String body, String cat, Date created) {
         this.title = title;
         this.body = body;
         this.cat = cat;
+        this.created = created;
     }
 
-    public Post(long id, String title, String body, String cat) {
+    public Post(long id, String title, String body, String cat, Date created) {
         this.id = id;
         this.title = title;
         this.body = body;
         this.cat = cat;
+        this.created = created;
     }
 
 
@@ -58,4 +69,7 @@ public class Post {
 
     public void setId(long id) { this.id = id; }
 
+    public Date getCreated() { return created; }
+
+    public void setCreated(Date created) { this.created = created; }
 }

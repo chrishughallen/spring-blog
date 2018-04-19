@@ -16,6 +16,8 @@
 <div th:each="post : ${posts}">
     <div class="post">
     <h1><span th:text="${post.title}"> </span></h1>
+
+    <!--<p><span th:text="${#dates.format(post.created,'MMM dd, YYYY @ HH:mm')}"></span></p>-->
     <p>category: <span th:text="${post.cat}"></span></p>
     <p>
         <span th:text="${post.body}">
@@ -30,5 +32,7 @@
 
 </div>
 
+
+<div th:replace="/partials/footer :: footer"></div>
 </body>
 </html>

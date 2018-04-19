@@ -20,10 +20,14 @@
     <textarea class="form-control" th:field="*{body}" placeholder="Post Body..."/>
     <br />
     <select class="form-control" th:field="*{cat}">
-        <option value="Bacon">Bacon</option>
-        <option value="Meat">Meat</option>
-        <option value="Sausage">Sausage</option>
-        <option value="Pork">Pork</option>
+        <option value="Social">Social</option>
+        <option value="Political">Political</option>
+        <option value="Financial">Financial</option>
+        <option value="Sports">Sports</option>
+        <option value="Personal">Personal</option>
+        <option value="Hobby">Hobby</option>
+        <option value="Music">Music</option>
+        <option value="Movies">Movies</option>
 
     </select>
     <button class="input-group btn btn-success">Submit Post</button>
@@ -31,5 +35,7 @@
 </form>
 
 
+
+<div th:replace="/partials/footer :: footer"></div>
 </body>
 </html>

@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
-<head>
+<head th:replace="partials/head :: head">
     <meta charset="UTF-8" />
     <title>Title</title>
 </head>
 <body>
 
-<footer th:fragment="footer">
-    Good Luck!
+<footer id="footer" th:fragment="footer">
+    <h5 class="text-center">Copyright &copy; 2018 Chris Allen</h5>
 </footer>
 
 </body>
