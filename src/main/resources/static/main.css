@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css?family=PT+Mono|Lobster');
+
+
+body{
+    width: 50%;
+    margin: 0 auto;
+    font-family: "PT Mono", sans-serif;
+}
+
+li{
+    list-style: none;
+    display: inline;
+}
+h1{
+    font-family: lobster, sans-serif;
+}
+.post{
+    border: 1px dotted black;
+    margin-bottom: 5%;
+    padding: 5%;
+}
+
+.navbar, .navbar-default{
+    background:transparent;
+    border: none;
+}
+
+textarea{
+    height: 300px;
+}
+
+select{
+    margin-bottom: 5%;
+}
+
+
+
+

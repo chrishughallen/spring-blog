@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/partials/head :: head">
+    <meta charset="UTF-8" />
+    <title>Create</title>
+</head>
+<body>
+
+
+<div th:replace="/partials/navbar :: navbar"></div>
+
+
+<h1 class="text-center"><u>Create a new post</u></h1>
+
+
+<form th:action="@{/posts/create}" th:method="post" th:object="${post}">
+    <div class="form-group">
+    <input class="form-control" th:field="*{title}" placeholder="Post Title..." />
+    <br />
+    <textarea class="form-control" th:field="*{body}" placeholder="Post Body..."/>
+    <br />
+    <select class="form-control" th:field="*{cat}">
+        <option value="Bacon">Bacon</option>
+        <option value="Meat">Meat</option>
+        <option value="Sausage">Sausage</option>
+        <option value="Pork">Pork</option>
+
+    </select>
+    <button class="input-group btn btn-success">Submit Post</button>
+    </div>
+</form>
+
+
+</body>
+</html>
