@@ -3,10 +3,14 @@ package com.example.blog.controllers;
 
 import com.example.blog.models.Post;
 import com.example.blog.repositories.PostRepository;
+import com.example.blog.repositories.UserRepository;
 import com.example.blog.services.PostService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 
@@ -14,10 +18,12 @@ public class PostController {
 
     private PostService postSvc;
     private PostRepository postRepo;
+    private UserRepository userRepo;
 
-    public PostController(PostService postSvc, PostRepository postRepo) {
+    public PostController(PostService postSvc, PostRepository postRepo, UserRepository userRepo) {
         this.postSvc = postSvc;
         this.postRepo = postRepo;
+        this.userRepo = userRepo;
     }
 
     @GetMapping("/posts")
@@ -41,7 +47,7 @@ public class PostController {
     @PostMapping("/posts/edit")
     public String handleEdit(@ModelAttribute Post post){
         postRepo.save(post);
-        return "redirect:/posts";
+        return "redirect:/posts/" + post.getId();
     }
 
     @GetMapping("/posts/create")
@@ -52,6 +58,7 @@ public class PostController {
 
     @PostMapping("/posts/create")
     public String create(@ModelAttribute Post post){
+      post.setUser(userRepo.findById(2));
       postRepo.save(post);
       return "redirect:/posts";
     }

@@ -1,10 +1,7 @@
 package com.example.blog.models;
 
 
-import org.hibernate.annotations.CreationTimestamp;
-
 import javax.persistence.*;
-import java.util.Date;
 
 
 @Entity
@@ -25,32 +22,30 @@ public class Post {
     @Column(nullable = false)
     private String cat;
 
-    @CreationTimestamp
-    @Column(name = "created")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date created;
+//    creates the relationship to the users table
+    @OneToOne
+    private User user;
+
 
 
 
     public Post() {
     }
 
-    public Post(String title, String body, String cat, Date created) {
+    public Post(String title, String body, String cat, User user) {
         this.title = title;
         this.body = body;
         this.cat = cat;
-        this.created = created;
+        this.user = user;
     }
 
-    public Post(long id, String title, String body, String cat, Date created) {
+    public Post(long id, String title, String body, String cat, User user) {
         this.id = id;
         this.title = title;
         this.body = body;
         this.cat = cat;
-        this.created = created;
+        this.user = user;
     }
-
-
 
 
     public String getCat() { return cat; }
@@ -69,7 +64,8 @@ public class Post {
 
     public void setId(long id) { this.id = id; }
 
-    public Date getCreated() { return created; }
 
-    public void setCreated(Date created) { this.created = created; }
+    public User getUser() { return user; }
+
+    public void setUser(User user) { this.user = user; }
 }

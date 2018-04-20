@@ -1,37 +1,67 @@
 @import url('https://fonts.googleapis.com/css?family=PT+Mono|Lobster');
 
+html {
+    min-height: 100%
+}
 
-body{
+body {
     width: 50%;
     margin: 0 auto;
     font-family: "PT Mono", sans-serif;
-    margin-bottom:50px;
+    margin-bottom: 50px;
+    background: #FF8008;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #FFC837, #FF8008);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #FFC837, #FF8008); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
 }
+
+.btn-right{
+    float: right;
+}
+
+
+.navbar-brand{
+    font-family: lobster;
+    font-size: 2em;
+    color: black;
+}
+
+.black{
+    color: black;
+}
+
 
 #footer {
     position: fixed;
-    height: 50px;
+    height: 40px;
     bottom: 0px;
+    padding-bottom:10px;
+    background-color: rgba(0,0,0,.8);
     left: 0px;
     right: 0px;
     margin-bottom: 0px;
+    color: #FFF;
 }
 
 .jumbotron{
     background-color: rgba(0,0,0,.7);
 }
 
-li{
-    list-style: none;
-    display: inline;
-}
 h1{
     font-family: lobster, sans-serif;
+
 }
 .post{
     border: 1px dotted black;
     margin-bottom: 5%;
-    padding: 5%;
+    margin-top: 5%;
+    padding: 8%;
+    border-radius:15px;
+    background: #2BC0E4;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #EAECC6, #2BC0E4);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #EAECC6, #2BC0E4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    text-align: center;
 }
 
 .navbar, .navbar-default{

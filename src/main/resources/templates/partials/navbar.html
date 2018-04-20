@@ -7,7 +7,7 @@
 
 <body>
 
-<nav th:fragment="navbar"  class="navbar navbar-default">
+<nav th:fragment="navbar"  class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -17,12 +17,16 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/posts">Le Blog</a>
+            <a class="navbar-brand" href="/posts"><span class="black">Le Blog</span> </a>
 
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="/posts/create"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a></li>
+                <li><a href="/posts/create"><span class="black">New Post <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></span></a></li>
+                <li><a href="#"><span class="black">Login <span class="glyphicon glyphicon-user" aria-hidden="true"></span></span></a></li>
+
+
+
             </ul>
         </div>
     </div>

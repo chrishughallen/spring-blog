@@ -7,16 +7,16 @@
 <body>
 
 <div th:replace="/partials/navbar :: navbar"></div>
-
+<div class="post">
 <form th:action="@{/posts/edit}" th:method="post" th:object="${post}">
     <div class="form-group">
     <input class="form-control" th:field="*{title}" placeholder="Post Title..." />
     <br />
     <textarea class="form-control" th:field="*{body}" placeholder="Post Body..."/>
     <br />
-    <input type="hidden" th:field="*{id}"/>
-
-    <br />
+        <input type="hidden" th:field="*{id}"/>
+        <input type="hidden" th:field="*{user}"/>
+        <br />
     <select class="form-control" th:field="*{cat}">
         <option value="Social">Social</option>
         <option value="Political">Political</option>
@@ -27,13 +27,16 @@
         <option value="Music">Music</option>
         <option value="Movies">Movies</option>
     </select>
-    <button class="form-control btn btn-success">Submit Post</button>
+    <button class="form-control btn btn-success"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+        Save Changes</button>
     </div>
 </form>
-<a th:href="@{/posts/{id}/delete(id=${post.id})}"><button class="form-control btn btn-danger">Delete Post
+    <div th:object="${post}">
+<a th:href="@{/posts/{id}/delete(id=${id})}"><button class="form-control btn btn-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete Post
 </button></a>
+    </div>
 
-
+</div>
 <div th:replace="/partials/footer :: footer"></div>
 </body>
 </html>
