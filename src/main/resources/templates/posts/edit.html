@@ -15,8 +15,7 @@
     <textarea class="form-control" th:field="*{body}" placeholder="Post Body..."/>
     <br />
         <input type="hidden" th:field="*{id}"/>
-        <input type="hidden" th:field="*{user}"/>
-        <br />
+        <input type="hidden" th:field="*{user}"/><br />
     <select class="form-control" th:field="*{cat}">
         <option value="Social">Social</option>
         <option value="Political">Political</option>
@@ -26,6 +25,13 @@
         <option value="Hobby">Hobby</option>
         <option value="Music">Music</option>
         <option value="Movies">Movies</option>
+        <option value="Books">Books</option>
+        <option value="Art">Art</option>
+        <option value="Technology">Technology</option>
+        <option value="Goals">Goals</option>
+        <option value="Motivation">Motivation</option>
+        <option value="Style">Style</option>
+        <option value="selfHelp">Self-Help</option>
     </select>
     <button class="form-control btn btn-success"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
         Save Changes</button>
