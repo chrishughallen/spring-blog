@@ -58,7 +58,7 @@ public class PostController {
 
     @PostMapping("/posts/create")
     public String create(@ModelAttribute Post post){
-      post.setUser(userRepo.findById(2));
+      post.setUser(userRepo.findById(1));
       postRepo.save(post);
       return "redirect:/posts";
     }
