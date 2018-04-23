@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head th:replace="/partials/head :: head">
     <meta charset="UTF-8" />
     <title>Posts</title>
@@ -10,22 +11,31 @@
 <div th:replace="/partials/navbar :: navbar"></div>
 
 
+
 <div class="main">
+
+
+    <h2 class="text-center">Build Your Own Blog</h2>
+
+    <div sec:authorize="isAuthenticated()">
+        <ul>
+            <a sec:authorize="isAuthenticated()" href="/posts/create"><button class="btn btn-info">New Post</button></a>
+        <!--<li sec:authorize="isAuthenticated()"><a href="/posts/create"><span class="black">New Post</span></a></li>-->
+        </ul>
+    </div>
+
 <div th:each="post : ${posts}">
 
     <div class="post">
     <h1><span th:text="${post.title}"> </span></h1>
-
     <p>category: <span th:text="${post.cat}"></span></p>
 
         <a  th:href="@{/posts/{id}(id=${post.id})}">
-            <button class="btn btn-info"><span class="glyphicon glyphicon-search" aria-hidden="true">
+            <button class="btn"><span class="glyphicon glyphicon-search" aria-hidden="true">
             </span> View Post
             </button>
         </a>
     </div>
-
-
 
 </div>
 

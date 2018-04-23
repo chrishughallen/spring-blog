@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=PT+Mono|Lobster');
+@import url('https://fonts.googleapis.com/css?family=Black+Han+Sans');
+
 
 html {
     min-height: 100%
@@ -9,10 +11,6 @@ body {
     margin: 0 auto;
     font-family: "PT Mono", sans-serif;
     margin-bottom: 50px;
-    /*background: #FF8008;  !* fallback for old browsers *!*/
-    /*background: -webkit-linear-gradient(to bottom, #FFC837, #FF8008);  !* Chrome 10-25, Safari 5.1-6 *!*/
-    /*background: linear-gradient(to bottom, #FFC837, #FF8008); !* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ *!*/
-
 
 }
 
@@ -22,7 +20,7 @@ body {
 
 
 .navbar-brand{
-    font-family: lobster;
+    font-family: Black Han Sans, sans-serif;
     font-size: 2em;
     color: black;
 }
@@ -44,12 +42,9 @@ body {
     color: #FFF;
 }
 
-.jumbotron{
-    background-color: rgba(0,0,0,.7);
-}
 
 h1{
-    font-family: lobster, sans-serif;
+    font-family: Black Han Sans, sans-serif;
 
 }
 .post{
