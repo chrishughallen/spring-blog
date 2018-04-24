@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+</head>
+
+<body>
+
+<div th:fragment="jQuery">
+
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous">
+    </script>
+
+</div>
+
+
+
+
+<div th:fragment="logoutScript">
+    <script>
+        $(function() {
+            $("#logout").on("click",function(e) {
+                e.preventDefault(); // cancel the link itself
+                $.post(this.href,function(data) {
+                    $("@{/logout}").html(data);
+                });
+            });
+        });
+    </script>
+
+</div>
+
+
+
+
+
+<div th:fragment="colorScript">
+    <script>
+       $(function(){
+           var bg_color = $("#bg_color").val();
+           var color = $("#font_color").val();
+           $(".post_color").css({
+               "background-color" : bg_color,
+               "color" : color
+           });
+        });
+
+    </script>
+
+</div>
+
+
+<div th:fragment="defaultColorScript">
+
+    <script>
+        $('#bg_color').val("#000000");
+        $('#font_color').val("#ffffff");
+    </script>
+
+</div>
+
+
+</body>
+</html>

@@ -17,17 +17,17 @@
 
     <h2 class="text-center">Build Your Own Blog</h2>
 
-    <div sec:authorize="isAuthenticated()">
+    <span  sec:authorize="isAuthenticated()">
         <ul>
             <a sec:authorize="isAuthenticated()" href="/posts/create"><button class="btn btn-info">New Post</button></a>
-        <!--<li sec:authorize="isAuthenticated()"><a href="/posts/create"><span class="black">New Post</span></a></li>-->
         </ul>
-    </div>
+    </span>
 
 <div th:each="post : ${posts}">
 
     <div class="post">
     <h1><span th:text="${post.title}"> </span></h1>
+        <p>Poster: <span th:text="${post.alias}"></span></p>
     <p>category: <span th:text="${post.cat}"></span></p>
 
         <a  th:href="@{/posts/{id}(id=${post.id})}">
@@ -40,9 +40,12 @@
 </div>
 
 
-
 <div th:replace="/partials/footer :: footer"></div>
-
 </div>
+
+<div th:replace="/partials/scripts :: jQuery"></div>
+<div th:include="/partials/scripts :: homeScript"></div>
+<div th:include="/partials/scripts :: logoutScript"></div>
+
 </body>
 </html>

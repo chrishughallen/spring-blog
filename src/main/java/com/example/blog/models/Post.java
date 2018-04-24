@@ -22,7 +22,17 @@ public class Post {
     @Column(nullable = false)
     private String cat;
 
-//    creates the relationship to the users table
+    @Column(nullable = false)
+    private String bg_color;
+
+    @Column(nullable = false)
+    private String font_color;
+
+    @Column(nullable = false)
+    private String alias;
+
+
+    //    creates the relationship to the users table
     @OneToOne
     private User user;
 
@@ -36,20 +46,25 @@ public class Post {
     public Post() {
     }
 
-    public Post(String title, String body, String cat, User user) {
+    public Post(String title, String body, String cat, User user, String bg_color, String font_color, String alias) {
         this.title = title;
         this.body = body;
         this.cat = cat;
         this.user = user;
+        this.bg_color = bg_color;
+        this.font_color = font_color;
+        this.alias = alias;
     }
 
-    public Post(long id, String title, String body, String cat, User user) {
+    public Post(long id, String title, String body, String cat, User user, String alias) {
         this.id = id;
         this.title = title;
         this.body = body;
         this.cat = cat;
         this.user = user;
+        this.alias = alias;
     }
+
 
 
     public String getCat() { return cat; }
@@ -71,5 +86,18 @@ public class Post {
     public User getUser() { return user; }
 
     public void setUser(User user) { this.user = user; }
+
+    public String getFont_color() { return font_color; }
+
+    public void setFont_color(String font_color) { this.font_color = font_color; }
+
+    public String getBg_color() { return bg_color; }
+
+    public void setBg_color(String bg_color) { this.bg_color = bg_color; }
+
+    public String getAlias() { return alias; }
+
+    public void setAlias(String alias) { this.alias = alias; }
+
 
 }

@@ -7,5 +7,6 @@ $(function() {
     });
 });
 
+console.log("connected!");
 
 

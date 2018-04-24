@@ -10,13 +10,19 @@
 <div class="post">
 <form th:action="@{/posts/edit}" th:method="post" th:object="${post}">
     <div class="form-group">
-    <input class="form-control" th:field="*{title}" placeholder="Post Title..." />
+        <label for="title">Title:</label>
+    <input id="title" class="form-control" th:field="*{title}" placeholder="Post Title..." />
     <br />
-    <textarea class="form-control" th:field="*{body}" placeholder="Post Body..."/>
+        <label for="body">Body:</label>
+    <textarea id="body" class="form-control" th:field="*{body}" placeholder="Post Body..."/>
     <br />
+        <label for="alias">Alias:</label>
+        <input type="text" class="form-control" id="alias" th:field="*{alias}" />
+
         <input type="hidden" th:field="*{id}"/>
         <input type="hidden" th:field="*{user}"/><br />
-    <select class="form-control" th:field="*{cat}">
+        <label for="category">Category:</label>
+    <select id="category" class="form-control" th:field="*{cat}">
         <option value="Social">Social</option>
         <option value="Political">Political</option>
         <option value="Financial">Financial</option>
@@ -33,6 +39,16 @@
         <option value="Style">Style</option>
         <option value="selfHelp">Self-Help</option>
     </select>
+
+
+        <label for="bg_color">Background Color</label>
+        <input id="bg_color" type="color" class="form-control" th:field="*{bg_color}" />
+
+        <br />
+
+        <label for="font_color">Font Color</label>
+        <input id="font_color" type="color" class="form-control" th:field="*{font_color}" />
+        <br />
     <button class="form-control btn btn-success"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
         Save Changes</button>
     </div>
@@ -44,5 +60,10 @@
 
 </div>
 <div th:replace="/partials/footer :: footer"></div>
+
+<div th:replace="/partials/scripts :: jQuery"></div>
+<div th:replace="/partials/scripts :: logoutScript"></div>
+<div th:replace="/partials/scripts :: colorScript"></div>
+
 </body>
 </html>

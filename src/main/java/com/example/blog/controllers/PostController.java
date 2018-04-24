@@ -26,6 +26,12 @@ public class PostController {
         this.userRepo = userRepo;
     }
 
+    @GetMapping("/")
+    public String home(Model model){
+        model.addAttribute("posts", postRepo.findAll());
+        return "posts/index";
+    }
+
     @GetMapping("/posts")
     public String index(Model model){
         model.addAttribute("posts", postRepo.findAll());
@@ -60,7 +66,7 @@ public class PostController {
     public String create(@ModelAttribute Post post){
       post.setUser(userRepo.findById(1));
       postRepo.save(post);
-      return "redirect:/posts";
+      return "redirect:/posts/" + post.getId();
     }
 
     @GetMapping("/posts/{id}/delete")
