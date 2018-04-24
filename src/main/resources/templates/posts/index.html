@@ -12,16 +12,15 @@
 
 
 
+
 <div class="main">
 
 
     <h2 class="text-center">Build Your Own Blog</h2>
+    <h4 class="text-center">Logged in as <span th:text="${user.username}"></span></h4>
+    <div th:replace="/partials/loggedInNav :: navbar"></div>
 
-    <span  sec:authorize="isAuthenticated()">
-        <ul>
-            <a sec:authorize="isAuthenticated()" href="/posts/create"><button class="btn btn-info">New Post</button></a>
-        </ul>
-    </span>
+
 
 <div th:each="post : ${posts}">
 

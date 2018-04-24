@@ -92,6 +92,4 @@ public class Post {
 
     public void setBg_color(String bg_color) { this.bg_color = bg_color; }
 
-
-
 }

@@ -28,8 +28,9 @@
                 <li sec:authorize="!isAuthenticated()"><a th:href="@{/login}"><span class="black">Login</span></a></li>
                 <li sec:authorize="!isAuthenticated()"><a th:href="@{/sign-up}"><span class="black">Sign Up</span></a></li>
                 <form sec:authorize="isAuthenticated()" th:action="@{/logout}" th:method="post" class="form-inline">
-                  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Logout</button>
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Logout</button>
                 </form>
+
             </ul>
         </div>
     </div>

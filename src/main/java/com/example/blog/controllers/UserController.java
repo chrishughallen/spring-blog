@@ -34,17 +34,16 @@ public class UserController {
             model.addAttribute(user);
             return"users/sign-up";
         }
+
         String hash = passwordEncoder.encode(user.getPassword());
         user.setPassword(hash);
         users.save(user);
         return "redirect:/login";
     }
 
-    @Controller
-    public class AuthenticationController {
         @GetMapping("/login")
         public String showLoginForm() {
             return "users/login";
         }
-    }
+
 }

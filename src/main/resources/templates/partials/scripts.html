@@ -7,7 +7,7 @@
 
 <body>
 
-<div th:fragment="jQuery">
+<th:block th:fragment="jQuery">
 
     <script
             src="https://code.jquery.com/jquery-3.3.1.min.js"
@@ -15,12 +15,12 @@
             crossorigin="anonymous">
     </script>
 
-</div>
+</th:block>
 
 
 
 
-<div th:fragment="logoutScript">
+<th:block th:fragment="logoutScript">
     <script>
         $(function() {
             $("#logout").on("click",function(e) {
@@ -32,13 +32,13 @@
         });
     </script>
 
-</div>
+</th:block>
 
 
 
 
 
-<div th:fragment="colorScript">
+<th:block th:fragment="colorScript">
     <script>
        $(function(){
            var bg_color = $("#bg_color").val();
@@ -51,17 +51,19 @@
 
     </script>
 
-</div>
+</th:block>
 
 
-<div th:fragment="defaultColorScript">
+<th:block th:fragment="defaultColorScript">
 
     <script>
-        $('#bg_color').val("#000000");
-        $('#font_color').val("#ffffff");
+        $(function() {
+            $('#bg_color').val("#ffffff");
+            $('#font_color').val("#000000");
+        });
     </script>
 
-</div>
+</th:block>
 
 
 </body>

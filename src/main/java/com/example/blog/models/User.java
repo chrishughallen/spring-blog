@@ -21,11 +21,8 @@ public class User {
     private String email;
 
     @Column(nullable = false)
-    @Size (min=5, max=15, message = "Password must be between 5 and 15 characters")
-
+    @Size (min=1, message = "Password cannot be empty")
     private String password;
-
-
 
 
 //    this is to insert users
