@@ -13,10 +13,17 @@
     <div class="form-group">
 
     <input class="form-control" id="username" th:field="*{username}" placeholder="Username" />
+        <p class="error" th:if="${#fields.hasErrors('username')}" th:errors="*{username}" />
 
-    <input class="form-control" id="email" th:field="*{email}" placeholder="Email Address" />
 
-    <input class="form-control" id="password" type="password" th:field="*{password}" placeholder="Password" />
+        <input class="form-control" id="email" th:field="*{email}" placeholder="Email Address" />
+        <p class="error" th:if="${#fields.hasErrors('email')}" th:errors="*{email}" />
+
+
+
+        <input class="form-control" id="password" type="password" th:field="*{password}" placeholder="Password" />
+        <p class="error" th:if="${#fields.hasErrors('password')}" th:errors="*{password}" />
+
 
         <button class="form-control btn btn-success">Sign Up</button>
     </div>

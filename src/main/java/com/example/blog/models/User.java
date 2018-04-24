@@ -2,6 +2,7 @@ package com.example.blog.models;
 
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "users")
@@ -12,12 +13,16 @@ public class User {
     private long id;
 
     @Column(nullable = false, unique = true)
+    @Size (min=5, max=25, message = "Username must be between 5 and 25 characters")
     private String username;
 
     @Column(nullable = false, unique = true)
+    @Size (min=1, message = "Email field cannot be blank")
     private String email;
 
     @Column(nullable = false)
+    @Size (min=5, max=15, message = "Password must be between 5 and 15 characters")
+
     private String password;
 
 

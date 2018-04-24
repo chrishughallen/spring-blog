@@ -12,13 +12,12 @@
     <div class="form-group">
         <label for="title">Title:</label>
     <input id="title" class="form-control" th:field="*{title}" placeholder="Post Title..." />
+        <p class="error" th:if="${#fields.hasErrors('title')}" th:errors="*{title}" />
     <br />
         <label for="body">Body:</label>
     <textarea id="body" class="form-control" th:field="*{body}" placeholder="Post Body..."/>
+        <p class="error" th:if="${#fields.hasErrors('body')}" th:errors="*{body}" />
     <br />
-        <label for="alias">Alias:</label>
-        <input type="text" class="form-control" id="alias" th:field="*{alias}" />
-
         <input type="hidden" th:field="*{id}"/>
         <input type="hidden" th:field="*{user}"/><br />
         <label for="category">Category:</label>

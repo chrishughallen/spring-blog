@@ -29,6 +29,10 @@ body {
     color: black;
 }
 
+.error{
+    color: red;
+}
+
 
 #footer {
     position: fixed;

@@ -27,7 +27,6 @@
 
     <div class="post">
     <h1><span th:text="${post.title}"> </span></h1>
-        <p>Poster: <span th:text="${post.alias}"></span></p>
     <p>category: <span th:text="${post.cat}"></span></p>
 
         <a  th:href="@{/posts/{id}(id=${post.id})}">
