@@ -7,7 +7,6 @@ import com.example.blog.repositories.PostRepository;
 import com.example.blog.repositories.UserRepository;
 import com.example.blog.services.PostService;
 import com.example.blog.services.UserService;
-import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -77,16 +76,16 @@ public class PostController {
 
     @GetMapping("/profile")
     public String viewProfile(Model model){
-        boolean isNotLoggedIn = SecurityContextHolder.getContext().getAuthentication() instanceof AnonymousAuthenticationToken;
-        if(isNotLoggedIn){
-            return"redirect:/login";
+        if(!userSvc.isLoggedIn()){
+            User user = userSvc.currentUser();
+            model.addAttribute("posts", postRepo.findByUserId(user.getId()));
+            model.addAttribute("user", user);
+            return"users/profile";
         }
-
-        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        model.addAttribute("posts", postRepo.findByUserId(user.getId()));
-        model.addAttribute("user", user);
-        return"users/profile";
+        return"redirect:/login";
     }
+
+
 
     @GetMapping("/posts/create")
     public String create(Model model){
