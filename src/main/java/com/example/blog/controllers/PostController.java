@@ -98,11 +98,6 @@ public class PostController {
             model.addAttribute(post);
             return"posts/create";
         }
-        System.out.println(userSvc.isLoggedIn());
-        System.out.println(userSvc.currentUser().getEmail());
-        System.out.println(userSvc.currentUser().getId());
-        System.out.println(userSvc.currentUser().getPassword());
-        System.out.println(userSvc.currentUser().getUsername());
         post.setUser(userSvc.currentUser());
       postRepo.save(post);
       return "redirect:/posts/" + post.getId();
