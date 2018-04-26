@@ -8,9 +8,10 @@ html {
 
 body {
     width: 50%;
-    margin: 0 auto;
     font-family: "PT Mono", sans-serif;
-    margin-bottom: 50px;
+    margin:0 auto;
+    padding:0;
+    height:100%;
 
 }
 
@@ -33,17 +34,20 @@ body {
     color: red;
 }
 
+.loggedInNav{
+    display: flex;
+    justify-content: center;
+}
 
-#footer {
-    position: fixed;
-    height: 40px;
-    bottom: 0px;
-    padding-bottom:10px;
-    background-color: rgba(0,0,0,.8);
-    left: 0px;
-    right: 0px;
-    margin-bottom: 0px;
-    color: #FFF;
+
+.footer {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 1rem;
+    background-color: #efefef;
+    text-align: center;
 }
 
 

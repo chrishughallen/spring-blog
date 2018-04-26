@@ -12,6 +12,8 @@
 <div class="main">
 
 
+
+
     <h2 class="text-center">Build Your Own Blog</h2>
     <div th:replace="/partials/loggedInNav :: navbar"></div>
 
@@ -30,15 +32,14 @@
         </a>
     </div>
 
+
+
+
 </div>
-
-
 <div th:replace="/partials/footer :: footer"></div>
-</div>
-
 <div th:replace="/partials/scripts :: jQuery"></div>
 <div th:include="/partials/scripts :: homeScript"></div>
 <div th:include="/partials/scripts :: logoutScript"></div>
-
+</div>
 </body>
 </html>

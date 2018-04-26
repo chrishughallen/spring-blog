@@ -42,8 +42,10 @@ public class PostController {
 
     @GetMapping("/posts")
     public String index(Model model){
-        model.addAttribute("user", userSvc.currentUser());
-        model.addAttribute("posts", postRepo.findAll());
+        if(postRepo.findAll() != null) {
+            model.addAttribute("posts", postRepo.findAll());
+            return "posts/index";
+        }
         return "posts/index";
     }
 

@@ -1,8 +1,10 @@
 package com.example.blog.models;
 
 
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotBlank;
+
 import javax.persistence.*;
-import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "users")
@@ -13,15 +15,16 @@ public class User {
     private long id;
 
     @Column(nullable = false, unique = true)
-    @Size (min=5, max=25, message = "Username must be between 5 and 25 characters")
+    @NotBlank
     private String username;
 
-    @Column(nullable = false, unique = true)
-    @Size (min=1, message = "Email field cannot be blank")
+    @Column(nullable = false)
+    @NotBlank
+    @Email( message = "Must be a valid email")
     private String email;
 
     @Column(nullable = false)
-    @Size (min=1, message = "Password cannot be empty")
+    @NotBlank
     private String password;
 
 
