@@ -24,6 +24,7 @@
     <div class="post">
     <h1><span th:text="${post.title}"> </span></h1>
     <p>category: <span th:text="${post.cat}"></span></p>
+        <p>author: <span th:text="${post.user.username}"></span></p>
 
         <a  th:href="@{/posts/{id}(id=${post.id})}">
             <button class="btn"><span class="glyphicon glyphicon-search" aria-hidden="true">
