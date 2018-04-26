@@ -2,7 +2,6 @@ package com.example.blog.controllers;
 
 
 import com.example.blog.models.Post;
-import com.example.blog.models.User;
 import com.example.blog.repositories.PostRepository;
 import com.example.blog.repositories.UserRepository;
 import com.example.blog.services.PostService;
@@ -77,10 +76,9 @@ public class PostController {
 
     @GetMapping("/profile")
     public String viewProfile(Model model){
-        User user = userSvc.currentUser();
-        if(userSvc.isLoggedIn() && postRepo.findByUserId(user.getId())!= null){
-            model.addAttribute("posts", postRepo.findByUserId(user.getId()));
-            model.addAttribute("user", user);
+        if(postRepo.findByUserId(userSvc.currentUser().getId())!= null){
+            model.addAttribute("posts", postRepo.findByUserId(userSvc.currentUser().getId()));
+            model.addAttribute("user", userSvc.currentUser());
             return"users/profile";
         }
         return"redirect:/login";
