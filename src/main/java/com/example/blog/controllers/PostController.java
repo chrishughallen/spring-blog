@@ -76,12 +76,14 @@ public class PostController {
 
     @GetMapping("/profile")
     public String viewProfile(Model model){
-        if(postRepo.findByUserId(userSvc.currentUser().getId())!= null){
+        if(!userSvc.isLoggedIn()){
+            return "redirect:/login";
+        }else if(postRepo.findByUserId(userSvc.currentUser().getId()) != null){
             model.addAttribute("posts", postRepo.findByUserId(userSvc.currentUser().getId()));
             model.addAttribute("user", userSvc.currentUser());
-            return"users/profile";
-        }
-        return"redirect:/login";
+            return "users/profile";
+        }else model.addAttribute("user", userSvc.currentUser());
+        return "users/profile";
     }
 
     @GetMapping("/posts/create")

@@ -1,6 +1,7 @@
 package com.example.blog.services;
 
 import com.example.blog.models.User;
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
@@ -17,8 +18,11 @@ public class UserService {
     }
 
     public boolean isLoggedIn(){
-        User user =  (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        return user != null;
+        if (SecurityContextHolder.getContext().getAuthentication() instanceof AnonymousAuthenticationToken){
+            return false;
+        }
+        return true;
+
     }
 
     public User currentUser(){
