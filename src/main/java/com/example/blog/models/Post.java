@@ -1,8 +1,9 @@
 package com.example.blog.models;
 
 
+import org.hibernate.validator.constraints.NotBlank;
+
 import javax.persistence.*;
-import javax.validation.constraints.Size;
 
 
 @Entity
@@ -15,11 +16,11 @@ public class Post {
     private long id;
 
     @Column(nullable = false)
-    @Size(min=1, max=400, message = "Title must be between 1 and 400 characters long.")
+    @NotBlank
     private String title;
 
     @Column(nullable = false, length = 10000)
-    @Size(min = 1, message = "Body of post cannot be empty")
+    @NotBlank
     private String body;
 
     @Column(nullable = false)
@@ -31,15 +32,8 @@ public class Post {
     @Column(nullable = false)
     private String font_color;
 
-    //    creates the relationship to the users table
     @OneToOne
     private User user;
-
-
-
-
-
-
 
 
     public Post() {

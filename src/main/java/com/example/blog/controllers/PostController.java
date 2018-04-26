@@ -7,7 +7,6 @@ import com.example.blog.repositories.PostRepository;
 import com.example.blog.repositories.UserRepository;
 import com.example.blog.services.PostService;
 import com.example.blog.services.UserService;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -79,17 +78,13 @@ public class PostController {
     @GetMapping("/profile")
     public String viewProfile(Model model){
         User user = userSvc.currentUser();
-        if(!userSvc.isLoggedIn() && postRepo.findByUserId(user.getId())!= null){
+        if(userSvc.isLoggedIn() && postRepo.findByUserId(user.getId())!= null){
             model.addAttribute("posts", postRepo.findByUserId(user.getId()));
             model.addAttribute("user", user);
-            return"users/profile";
-        }else if(!userSvc.isLoggedIn()){
             return"users/profile";
         }
         return"redirect:/login";
     }
-
-
 
     @GetMapping("/posts/create")
     public String create(Model model){
@@ -103,8 +98,12 @@ public class PostController {
             model.addAttribute(post);
             return"posts/create";
         }
-      User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-      post.setUser(loggedInUser);
+        System.out.println(userSvc.isLoggedIn());
+        System.out.println(userSvc.currentUser().getEmail());
+        System.out.println(userSvc.currentUser().getId());
+        System.out.println(userSvc.currentUser().getPassword());
+        System.out.println(userSvc.currentUser().getUsername());
+        post.setUser(userSvc.currentUser());
       postRepo.save(post);
       return "redirect:/posts/" + post.getId();
     }
