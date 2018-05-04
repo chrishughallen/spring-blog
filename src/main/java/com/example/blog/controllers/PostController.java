@@ -78,8 +78,8 @@ public class PostController {
     public String viewProfile(Model model){
         if(!userSvc.isLoggedIn()){
             return "redirect:/login";
-        }else if(postRepo.findByUserId(userSvc.currentUser().getId()) != null){
-            model.addAttribute("posts", postRepo.findByUserId(userSvc.currentUser().getId()));
+        }else if(postRepo.findByUser(userSvc.currentUser()) != null){
+            model.addAttribute("posts", postRepo.findByUser(userSvc.currentUser()));
             model.addAttribute("user", userSvc.currentUser());
             return "users/profile";
         }else model.addAttribute("user", userSvc.currentUser());
